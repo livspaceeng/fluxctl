@@ -75,9 +75,13 @@ def MergeValues(name):
     files = dict()
     for (dirpath, dirnames, filenames) in walk(d):
         for f in filenames:
-            if f != VALUE_FILE_NAME:
+            print("INFO: processing:: app:%s file:%s" % (name, f))
+            if f != VALUE_FILE_NAME and !f.startswith('.'):
                 with open(dirpath + "/" + f, 'r') as myfile:
                     files[f] = myfile.read()
+                    print("\n")
+            else:
+                print(" ignored\n")
     
     if name == "expose":
         value['Annotations']['helmrelease'] = datetime.datetime.utcnow().isoformat()
