@@ -76,7 +76,7 @@ def MergeValues(name):
     for (dirpath, dirnames, filenames) in walk(d):
         for f in filenames:
             print("INFO: processing:: app:%s file:%s" % (name, f))
-            if f != VALUE_FILE_NAME and !f.startswith('.'):
+            if f != VALUE_FILE_NAME and not f.startswith('.'):
                 with open(dirpath + "/" + f, 'r') as myfile:
                     files[f] = myfile.read()
                     print("\n")
