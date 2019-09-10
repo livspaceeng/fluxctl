@@ -82,12 +82,12 @@ def MergeValues(name):
                     print("\n")
             else:
                 print(" ignored\n")
+
+    #if 'config' in value and 'enabled' in value['config'] and value['config']['enabled']:
+    value['config']['files'] = files
     
     if name == "expose":
         value['Annotations']['helmrelease'] = datetime.datetime.utcnow().isoformat()
-
-    if 'config' in value and 'enabled' in value['config'] and value['config']['enabled']:
-        value['config']['files'] = files
 
     return value
 
