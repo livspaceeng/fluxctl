@@ -84,8 +84,14 @@ def MergeValues(name):
                 print(" ignored\n")
 
     #if 'config' in value and 'enabled' in value['config'] and value['config']['enabled']:
-    value['config']['files'] = files
+    #    value['config']['files'] = files
     
+    if not value['config']:
+        value['config']= dict()
+    if not value['config']['files']:
+        value['config']['files'] = dict()
+    value['config']['files'] = files
+        
     if name == "expose":
         value['Annotations']['helmrelease'] = datetime.datetime.utcnow().isoformat()
 
