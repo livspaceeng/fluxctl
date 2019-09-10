@@ -75,13 +75,12 @@ def MergeValues(name):
     files = dict()
     for (dirpath, dirnames, filenames) in walk(d):
         for f in filenames:
-            print("INFO: processing:: app:%s file:%s" % (name, f))
             if f != VALUE_FILE_NAME and not f.startswith('.'):
+                print("INFO: processing:: app:%s file:%s" % (name, f))
                 with open(dirpath + "/" + f, 'r') as myfile:
                     files[f] = myfile.read()
-                    print("\n")
             else:
-                print(" ignored\n")
+                print("INFO: skipped:: app:%s file:%s" % (name, f))
 
     #if 'config' in value and 'enabled' in value['config'] and value['config']['enabled']:
     #    value['config']['files'] = files
