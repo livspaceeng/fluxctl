@@ -86,10 +86,8 @@ def MergeValues(name):
     #if 'config' in value and 'enabled' in value['config'] and value['config']['enabled']:
     #    value['config']['files'] = files
     
-    if not value['config']:
+    if 'config' not in value:
         value['config']= dict()
-    if not value['config']['files']:
-        value['config']['files'] = dict()
     value['config']['files'] = files
         
     if name == "expose":
