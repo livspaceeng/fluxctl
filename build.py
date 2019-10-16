@@ -45,7 +45,7 @@ def BuildHR(name,namespace,repo,repo_name,version,value):
     spec["chart"] = chart
     hr["spec"] = spec
     hr["metadata"] = metadata
-    hr['apiVersion'] = "flux.weave.works/v1beta1"
+    hr['apiVersion'] = "helm.fluxcd.io/v1"
     hr['kind'] = "HelmRelease"
 
     metadata["name"] = name
